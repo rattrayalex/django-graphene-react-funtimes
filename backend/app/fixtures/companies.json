@@ -1,0 +1,52 @@
+[
+  {
+    "model": "app.company",
+    "pk": 1,
+    "fields": {
+      "name": "First Company"
+    }
+  },
+  {
+    "model": "app.company",
+    "pk": 2,
+    "fields": {
+      "name": "Second Company"
+    }
+  },
+  {
+    "model": "app.job",
+    "pk": 1,
+    "fields": {
+      "title": "One Good Job",
+      "description": "work hard earn money",
+      "company": 1
+    }
+  },
+  {
+    "model": "app.job",
+    "pk": 2,
+    "fields": {
+      "title": "Another good job",
+      "description": "work little earn enough",
+      "company": 1
+    }
+  },
+  {
+    "model": "app.job",
+    "pk": 3,
+    "fields": {
+      "title": "A meh job",
+      "description": "Work lots earn little",
+      "company": 2
+    }
+  },
+  {
+    "model": "app.job",
+    "pk": 4,
+    "fields": {
+      "title": "A really bad job",
+      "description": "write java all day",
+      "company": 2
+    }
+  }
+]
