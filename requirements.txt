@@ -1,0 +1,14 @@
+Django==1.9.6
+django-filter==0.13.0
+django-graphiql==0.4.4
+djangorestframework==3.3.3
+flake8==2.5.4
+graphene==0.8.1
+graphql-core==0.4.18
+graphql-django-view==1.1.1
+graphql-relay==0.3.3
+mccabe==0.4.0
+pep8==1.7.0
+pyflakes==1.0.0
+singledispatch==3.4.0.3
+six==1.10.0
