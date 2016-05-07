@@ -43,6 +43,7 @@ INSTALLED_APPS = [
   'rest_framework',
   'django_graphiql',
   'graphene.contrib.django',
+  'aldjemy',
 ]
 
 MIDDLEWARE_CLASSES = [
