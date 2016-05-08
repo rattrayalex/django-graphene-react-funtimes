@@ -1,8 +1,13 @@
+from django.shortcuts import render
 from rest_framework import viewsets
 from django.contrib.auth.models import User
 
 from .serializers import CompanySerializer, JobSerializer, UserSerializer
 from .models import Company, Job
+
+
+def index(request):
+  return render(request, 'index.html')
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
