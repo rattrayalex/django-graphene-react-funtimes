@@ -49,6 +49,9 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
   'django.middleware.security.SecurityMiddleware',
   'django.contrib.sessions.middleware.SessionMiddleware',
+
+  'backend.middleware.RequestLogger',
+
   'django.middleware.common.CommonMiddleware',
   'django.middleware.csrf.CsrfViewMiddleware',
   'django.contrib.auth.middleware.AuthenticationMiddleware',
