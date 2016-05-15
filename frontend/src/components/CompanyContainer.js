@@ -4,35 +4,27 @@ import { container } from 'adrenaline';
 import Company from './Company';
 
 
-@container({
-  variables: ({ id }) => ({
-    id,
-  }),
-  query: `
-    query ($id: ID!) {
-      company(id: $id) {
-        ${Company.getFragment('company')}
-      }
-    }
-  `,
-})
-export default class CompanyContainer extends React.Component {
-  static propTypes = {
-    id: React.PropTypes.string.isRequired,
-    company: React.PropTypes.object,
-    isFetching: React.PropTypes.bool,
-    variables: React.PropTypes.object,
-  }
+const variables = ({ id }) => ({
+  id,
+});
 
-  render() {
-    const { props } = this;
-    return (
-      <div>
-        {!props.company ? null :
-          <Company company={props.company} />
-        }
-        <code><pre>{JSON.stringify(props)}</pre></code>
-      </div>
-    );
+const query = `
+  query ($id: ID!) {
+    company(id: $id) {
+      ${Company.getFragment('company')}
+    }
   }
-}
+`;
+
+const CompanyContainer = ({ company, mutate }) => (!company ? null :
+  <Company company={company} mutate={mutate} />
+);
+CompanyContainer.propTypes = {
+  id: React.PropTypes.string.isRequired,
+  company: React.PropTypes.object,
+  isFetching: React.PropTypes.bool,
+  variables: React.PropTypes.object,
+  mutate: React.PropTypes.func.isRequired,
+};
+
+export default container({ query, variables })(CompanyContainer);

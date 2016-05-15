@@ -1,37 +1,33 @@
 import React from 'react';
 import { presenter } from 'adrenaline';
 
+const css = {
+  job: {
+    border: '1px solid gray',
+    margin: '1rem',
+    padding: '1rem',
+  },
+};
 
-@presenter({
-  fragments: {
-    job: `
-      fragment on JobNode {
-        id
-        title
-        description
-      }
-    `,
-  }
-})
-export default class Job extends React.Component {
-  static propTypes = {
-    job: React.PropTypes.object.isRequired,
-  }
+const fragments = {
+  job: `
+    fragment on JobNode {
+      id
+      title
+      description
+    }
+  `,
+};
 
-  render() {
-    const { job: { title, description } } = this.props;
-    const style = {
-      border: '1px solid gray',
-      margin: '1rem',
-      padding: '1rem',
-    };
+const Job = ({ job: { title, description } }) => (
+  <div style={css.job}>
+    Job:
+    <strong> {title}</strong>
+    <p>{description}</p>
+  </div>
+);
+Job.propTypes = {
+  job: React.PropTypes.object.isRequired,
+};
 
-    return (
-      <div style={style} >
-        Job:
-        <strong> {title}</strong>
-        <p>{description}</p>
-      </div>
-    );
-  }
-}
+export default presenter({ fragments })(Job);
